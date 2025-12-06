@@ -54,7 +54,7 @@ cd ave_technologies_test
 
 2. Создаём .env файл
 cp .env.example .env
-Настроить при необходимости REDIS_URL.
+Заполнить по образцу из .env.example
 
 3. Запуск через Docker Compose
 docker-compose up --build -d
