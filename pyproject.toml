@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
+asyncio_mode="auto"
+addopts = "--tb=short -p no:warnings"
+testpaths = "tests"

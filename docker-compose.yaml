@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        - UID=${DOCKER_UID:-1000}
+        - GID=${DOCKER_GID:-1000}
+    env_file: .env
+    container_name: phones_app
+    user: "prod"
+    command: sh -c "cd src && gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000"
+    ports:
+      - 8001:8000
+    depends_on:
+      - redis
+    networks:
+      - app_network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
