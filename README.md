@@ -57,7 +57,7 @@ cp .env.example .env
 Настроить при необходимости REDIS_URL.
 
 3. Запуск через Docker Compose
-docker-compose up --build
+docker-compose up --build -d
 FastAPI будет доступен на http://localhost:8001
 
 Документация Swagger: http://localhost:8000/docs
